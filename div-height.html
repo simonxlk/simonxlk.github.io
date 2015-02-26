@@ -5,8 +5,8 @@
 <title>Div height adjustment</title>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <link type="text/css" rel="stylesheet" href="style.css">
+<link href='http://fonts.googleapis.com/css?family=Chelsea+Market|Open+Sans:400,600,700|Quicksand:400,700' rel='stylesheet' type='text/css'>
 <style>
-#wrapper {margin:0 20px;}
 #col1,#col2{
 	float:left;
 	box-sizing:border-box;
@@ -14,82 +14,104 @@
 	margin-right:20px;	
 }
 #box1,#box2{
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:16px;
 	display:block;
-	width:300px;
+	width:400px;
 	height:auto;
+	box-sizing:border-box;
 	background:#669;
 	padding:10px;
-	margin-top:10px;
+	margin-top:20px;
 }
 </style>
 </head>
 
 <body>
-<div id="wrapper">
-	<div id="col1">
-    	<div class="entry">
-            <textarea rows="4" cols="30" id="newtext1" autofocus>
+  <div id="wrapper">
+  <div id="content">
+    <div id="header">
+        <h2>Simon's GitHub Repository</h2>
+    </div><!--end head-->
+    <div id="main-content">
+        <p>The height of these two boxes remains even, regardless of how much more content one might have.</p> 
+        <p>Try adding text to any and see what happens to the other.</p>
+        <div id="col1">
+            <div class="entry">
+                <textarea rows="3" cols="30" id="newtext1" autofocus>
+                
+                </textarea>
+                <br>
+                <button id="btn1">Submit</button> 
+            </div><!--end entry-->
+            <div id="box1">
+                <p>One line of text!</p>
+                <p>Two lines of text..</p>
+                <p>Three lines of text..</p>
+                <p id="p1">Your text:  </p>
             
-            </textarea>
-            <br>
-            <button id="btn1">Submit</button> 
-        </div><!--end entry-->
-        <div id="box1">
-        	<p>One line of text!</p>
-            <p>Two lines of text..</p>
-            <p>Three lines of text..</p>
-            <p id="p1">Your text goes here:  </p>
-        
-        </div><!--end box1-->
-    </div><!--end col1-->
-    <div id="col2">
-    	<div class="entry">
-            <textarea rows="4" cols="30" id="newtext2">
+            </div><!--end box1-->
+        </div><!--end col1-->
+        <div id="col2">
+            <div class="entry">
+                <textarea rows="3" cols="30" id="newtext2">
+                
+                </textarea>
+                <br>
+                <button id="btn2">Submit</button> 
+            </div><!--end entry-->
+            <div id="box2">
+            <p>One line of text!</p>
+            <p id="p2">Your text:  </p>
             
-            </textarea>
-            <br>
-            <button id="btn2">Submit</button> 
-        </div><!--end entry-->
-        <div id="box2">
-        <p>one line of text!</p>
-        <p id="p2">Your text goes here:  </p>
+            </div><!--end box2-->
+        </div><!--end col2-->
+   		<div class="explain">
+    	<p>Here I've used JQuery to check which of the boxes is taller, then adjust the CSS height property of the other box.</p>
+    	<p>This would be useful if your site has a sidebar menu with a background colour or multiple div elements in a row.</p>  
+    	</div><!--end explain-->
+   
+    <script>
+    $(document).ready(function() {
+        eqDivs();
         
-        </div><!--end box2-->
-    </div><!--end col2-->
-<script>
-$(document).ready(function() {
-	eqDivs();
-	
-	function eqDivs(){
-		var newHeight;
-		if($('#box1').height() > $('#box2').height()) {
-			newHeight = $('#box1').height();
-			$('#box2').height(newHeight);	
-		}else{
-			newHeight = $('#box2').height();
-			$('#box1').height(newHeight);		
-		}
-	}
-	
-	//take text from an input box and add it to the corresponding text area
-		var textHolder;
-		$('#btn1').click(function() {
-			textHolder = $('#newtext1').val();
-			$('#p1').append(textHolder);
-			$('#box1').css("height", "auto");	
-			eqDivs();
-				
-		});
-		$('#btn2').click(function() {
-			textHolder = $('#newtext2').val();
-			$('#p2').append(textHolder);
-			$('#box2').css("height", "auto");	
-			eqDivs();
-		});
-	
-});
-</script>
-
-</div>
+        function eqDivs(){
+            var newHeight;
+            if($('#box1').height() > $('#box2').height()) {
+                newHeight = $('#box1').height();
+                $('#box2').height(newHeight);	
+            }else{
+                newHeight = $('#box2').height();
+                $('#box1').height(newHeight);		
+            }
+        }
+        
+        //take text from an input box and add it to the corresponding text area
+            var textHolder;
+            $('#btn1').click(function() {
+                textHolder = $('#newtext1').val();
+                $('#p1').append(textHolder);
+                $('#box1').css("height", "auto");	
+                eqDivs();
+                    
+            });
+            $('#btn2').click(function() {
+                textHolder = $('#newtext2').val();
+                $('#p2').append(textHolder);
+                $('#box2').css("height", "auto");	
+                eqDivs();
+            });
+        
+    });
+    </script> 
+    </div><!--end main content-->
+  </div><!--end content-->
+  	<div class="push"></div><!--push footer down-->
+  </div><!--end wrapper-->
+ 
+  <div id="footer">
+  		&copy; 2015 Simon Kelehan
+  </div><!--end footer-->
+  
 </body>
 </html>
