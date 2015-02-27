@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Random Background</title>
+<meta name="description" content="This page will show a different background each time it loads">
+<meta name="viewport" content="width=device-width">
+<link type="text/css" rel="stylesheet" href="style.css">
+<link href='http://fonts.googleapis.com/css?family=Chelsea+Market|Open+Sans:400,600,700|Quicksand:400,700' rel='stylesheet' type='text/css'>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script>
+	$(document).ready(function() {
+		var bgrandom = ['bg1.png','bg2.png','bg3.png','bg4.png'];
+		$('#sp-page').css({'background-image': 'url(images/' + bgrandom[Math.floor(Math.random() * bgrandom.length)] + ')'});
+		$('#sp-page').css({'background-repeat': 'no-repeat'});
+		$('#sp-page').css({'background-position': 'center'});
+	});
+</script>
+</head>
+
+<body>
+<div id="wrapper">
+	<div id="content">
+    	<div id="header">
+        		<a href="../"><h2>Simon's GitHub Repository</h2></a>
+        </div><!--end head-->
+        <div id="main-content">
+        	<div id="sp-page">
+                <p>This page will have a different background image each time it is loaded, the image is picked randomly from a list.</p>
+                <p>Refresh the page to see a different background.</p>   
+                <div id="scrollp">
+                    <p>This is some text..</p>
+                    <p>This is some text..</p>
+                    <p>This is some text..</p>
+                </div><!--end scrollp-->
+            </div><!--end sp page-->
+        
+        </div><!--end main content-->
+    </div><!--end content-->
+    <div class="push"></div><!--push footer down-->
+</div><!--end wrapper-->
+<div id="footer">
+	&copy; 2015 Simon Kelehan
+</div><!--end footer-->
+</body>
+</html>
