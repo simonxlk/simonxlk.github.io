@@ -10,55 +10,77 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <style type="text/css">
 /*body {background: url(images/parallex-bg.png) no-repeat center fixed;}*/
-#content_layer{position:absolute; width:960px; margin:0 auto;}
+#content_layer{position:absolute; width:100%; margin:0 auto;}
 #para1 {position:fixed;
-	background: url(images/parallex-ball.png) no-repeat 0px 200px;
+	background: url(images/parallax-ball.png) no-repeat 43% 50%;
 	width:100%;
-	height:750px;
+	height:800px;
 }
+#para2 {position:fixed;
+	background: url(images/parallax-ball.png) no-repeat 57% 50%;
+	width:100%;
+	height:800px;
+}
+#inner-content{width:960px; margin:0 auto;}
 </style>
 <script>
 	
 	function parallax(){
 		var paraLayer = document.getElementById('para1');
-		paraLayer.style.top = (window.pageYOffset / 10)+'px';	
+		var paraLayer2 = document.getElementById('para2');
+		paraLayer.style.top = -(window.pageYOffset / 10)+'px';
+		paraLayer2.style.top = (window.pageYOffset / 10)+'px';
+		//paraLayer2.style.left = (window.pageYOffset /12)+'px';	
 		}
 	
 	window.addEventListener("scroll", parallax, false);
 </script>
 </head>
 <body>
-<div id="wrapper">
-	<div id="content">
-    	<div id="header">
-        		<a href="../"><h2>Simon's GitHub Repository</h2></a>
-        </div><!--end head-->
-		<div id="main-content">
         	<div id="para1">
             </div><!--end para1-->
+            <div id="para2">
+            </div><!--end para2-->
             <div id="content_layer">
-            	<p>The background images move at a different speed and in different directions</p>
+            	<div id="header">
+        			<a href="../"><h2>Simon's GitHub Repository</h2></a>
+        		</div><!--end head-->
+                <div id="inner-content">
+                    <h3>Parallax scrolling </h3>
+                    <p>The background images move at a different speed and in different directions to the content.</p>
+                    <p>Scroll down to see the effect!</p>
+                    <p>For the code and how it works, see the GitHub <a href="https://github.com/simonxlk/parallax">repository</a>.
+                    
+                    <div id="scrollp">
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                        <p>This is some text..</p>
+                    </div><!--end scrollp-->
+                </div><!--end inner content-->
                 
-                <div id="scrollp">
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                    <p>This is some text..</p>
-                </div><!--end scrollp-->
             </div><!--end content layer-->
-        </div><!--end main content-->
-    </div><!--end content-->
-    <div class="push"></div><!--push footer down-->
-</div><!--end wrapper-->
-<div id="footer">
-	&copy; 2015 Simon Kelehan
-</div><!--end footer-->
+
 </body>
 </html>
