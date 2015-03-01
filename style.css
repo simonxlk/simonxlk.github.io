@@ -12,8 +12,9 @@ body, html{
 	padding-bottom:10px;
 	text-decoration:underline;	
 }
-a {
+a, a:visited {
 	text-decoration:none;
+	color:#06C;
 	font-weight:700;	
 }
 a:hover {text-decoration:underline;}
@@ -34,12 +35,14 @@ a:hover {text-decoration:underline;}
 	text-align:center;
 	color:#fff;
 }
+h2 {margin-top:30px;}
 p {
-	margin-bottom:15px;	
+	margin-top:25px;
+	margin-bottom:25px;	
 }
 .explain{
 	clear:both;
-	padding-top:20px;	
+	/*padding-top:20px;*/	
 }
 .push {height:50px; clear:both;}
 #footer{
@@ -71,6 +74,7 @@ p {
 	display:table;
 	color:#fff;	
 }
+#menu a, #menu a:visited{color:#FFF;}
 #menu ul li {
 	float:left;
 	list-style:none;
